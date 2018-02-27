@@ -1,5 +1,6 @@
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const DashboardPlugin = require('webpack-dashboard/plugin')
 
 const port = process.env.PORT || 3000
 
@@ -42,7 +43,8 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: 'public/index.html',
       favicon: 'public/favicon.ico'
-    })
+    }),
+    new DashboardPlugin()
   ],
   devServer: {
     host: 'localhost',

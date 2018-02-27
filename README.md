@@ -2,6 +2,7 @@
 - instructions referenced from https://medium.freecodecamp.org/learn-webpack-for-react-a36d4cac5060
 - about babel presets/plugins: https://www.fullstackreact.com/articles/what-are-babel-plugins-and-presets/
 - about property initializers: https://www.fullstackreact.com/articles/use-property-initializers-for-cleaner-react-components/
+- about react hot reloading: https://gaearon.github.io/react-hot-loader/getstarted/
 
 ## Install React, React Router, Semantic UI for React
 ```
@@ -305,3 +306,40 @@ export default NoMatch
 ```
 yarn start
 ```
+
+
+# Extras
+
+## Install Webpack Dashboard
+1. Install
+```
+yarn add webpack-dashboard -D
+```
+
+2. Configure `webpack.config.js`. Add the following imports
+```javascript
+// Import the plugin:
+const DashboardPlugin = require('webpack-dashboard/plugin');
+
+// If you aren't using express, add it to your webpack configs plugins section:
+plugins: [
+    new DashboardPlugin()
+]
+
+// If using a custom port
+plugins: [
+    new DashboardPlugin({ port: 3001 })
+]
+
+// If you are using an express based dev server, add it with compiler.apply
+compiler.apply(new DashboardPlugin());
+```
+
+3. Add script to `package.json`
+```javascript
+"scripts": {
+  "dev": "webpack-dashboard -- webpack-dev-server"
+}
+```
+
+4. Use `yarn dev` instead of yarn start
