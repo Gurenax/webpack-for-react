@@ -319,7 +319,7 @@ yarn add webpack-dashboard -D
 2. Configure `webpack.config.js`. Add the following imports
 ```javascript
 // Import the plugin:
-const DashboardPlugin = require('webpack-dashboard/plugin');
+const DashboardPlugin = require('webpack-dashboard/plugin')
 
 // If you aren't using express, add it to your webpack configs plugins section:
 plugins: [
@@ -332,7 +332,7 @@ plugins: [
 ]
 
 // If you are using an express based dev server, add it with compiler.apply
-compiler.apply(new DashboardPlugin());
+compiler.apply(new DashboardPlugin())
 ```
 
 3. Add script to `package.json`
